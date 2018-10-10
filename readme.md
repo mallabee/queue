@@ -109,11 +109,13 @@ Advise the demo app that is located under `tests/example` to understand how you 
 
 - Populate the job parameters with ease. Helps when you want to easily interact with the parameters (due to ability to decide the parameters types).
 
-### Passing your Container, Event Dispatcher, Logger
+### Passing your Container, Event Dispatcher, Logger, ExceptionHandler
 
 #### Container
 
 We are using the popular PSR container interface.
+
+The container is passed to the job in-order to allow you to get your dependencies easily.
 
 #### Event Dispatcher
 
@@ -122,6 +124,8 @@ Notice that we only use the `listen` & `dispatch` of the interface, no need to i
 #### Logger
 
 We are using the popular PSR logger interface.
+
+Used in the queue utils.
 
 ### Definitions
 
@@ -133,6 +137,7 @@ We are using the popular PSR logger interface.
 - Driver/Adapter - A driver is the way to interact with new queue type (e.g.: Beanstalkd, SQS, Redis, Database).
 - Connector - A driver connector is the class that makes the connection between a queue configuration and a driver and generate an instance.
 - Event - An event is fired when relevant stuff happens (such as job processed, job failed). You can listen to these events and interact with the queue while they occur.
+- Queue Utils - sometimes it happens that a driver have implementation / ideas that other drivers don't share with it, this is the place to put them.
 
 ### Best practices for background task management
 
