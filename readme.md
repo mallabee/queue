@@ -3,11 +3,13 @@ Date: October 9, 2018.
 State: Still Active.
 
 ##What?
+
 Framework agnostic, background task management using multiple drivers with custom drivers registering availability.
 
 What is a background task management? simple words - offloading work to background jobs. read more: https://www.slideshare.net/JurianSluiman/queue-your-work  
 
 ##Why?
+
 We faced a problem needing a queue management for a Symfony side-project and a pure PHP project that has a framework agnostic approach in mind. This means - low, if at all amount of dependencies.
 
 The available popular packages at that time were:
@@ -17,6 +19,7 @@ The available popular packages at that time were:
 As each package had it's problems, we sat to create this library - a framework agnostic, queue background task management, available for use for pure PHP projects as well.
 
 ##How?
+
 ENTER - Mallabee Queue a.k.a MQ / MQueue (by [mallabee.com](mallabee.com))
 
 By leveraging the understanding of queues, best practices and ease of use from multiple libraries such as `yiisoft/yii2-queue`, `illuminate/queue`.
@@ -30,11 +33,13 @@ Advantages / Features:
 - Use of generators to allow the project creator to consume the jobs as they wish.
 
 ###Introduction
+
 Best practices:
 - Why not daemonizing a PHP script? - PHP is not good for long background processes - read more: http://symcbean.blogspot.com/2010/02/php-and-long-running-processes.html
 - We don't know when is your application is "Down for maintenance".
 
 ###Usage
+
 First, create a new Queue manager instance.
 
 ```PHP
@@ -63,6 +68,7 @@ Queue::push('SendEmail', array('message' => $message));
 
 
 ### Registering a custom queue handler driver
+
 **Note:** Make sure all your connector, driver and job files are inside same folder
 
 ```php
@@ -124,6 +130,7 @@ foreach ($generator as $jobData) {
 ```
 
 ###Definitions
+
 - Manager/Queue Manager (sometimes referred to as Queue)
 - Worker
 - Job
@@ -136,6 +143,7 @@ foreach ($generator as $jobData) {
 ##MQ and Laravel Queues (`illuminate/queue`)
 
 ###Main differences between MQ and Laravel Queues (`illuminate/queue`)
+
 - Folder structure.
 - Container can be null, not a must and not passed.
 - `QueueManager` and `Manager` are combined into one class `Manager`.
@@ -161,6 +169,7 @@ foreach ($generator as $jobData) {
 
 
 ###Contribute
+
 Contribution is highly appreciated.
 
 Here's what we are missing:
