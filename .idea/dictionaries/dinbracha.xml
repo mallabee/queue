@@ -2,8 +2,19 @@
   <dictionary name="dinbracha">
     <words>
       <w>beanstalkd</w>
+      <w>cjson</w>
+      <w>llen</w>
+      <w>lpop</w>
       <w>mallabee</w>
+      <w>pcntl</w>
       <w>pheanstalk</w>
+      <w>psubscribe</w>
+      <w>rpush</w>
+      <w>zadd</w>
+      <w>zcard</w>
+      <w>zrangebyscore</w>
+      <w>zrem</w>
+      <w>zremrangebyrank</w>
     </words>
   </dictionary>
 </component>

@@ -153,4 +153,3 @@ Here's what we are missing:
 #### Fix required
 
 - `FailingJob` is missing.
-- `RedisQueue` - `getConnection` - cannot make public.  

@@ -25,14 +25,17 @@ abstract class Queue
     protected $connectionName;
 
     /**
-     * @param null $connection
+     * @param null|QueueInterface $connection
      *
      * @return null|QueueInterface
      */
-    public function getConnection($connection = null): ?QueueInterface
-    {
-        return !empty($connection) ? $connection : $this;
-    }
+//    public function getQueueConnection(?QueueInterface $connection = null): ?QueueInterface
+//    {
+//        /** @var QueueInterface $that */
+//        $that = $this;
+//
+//        return !empty($connection) ? $connection : $that;
+//    }
 
     /**
      * The create payload callback.
