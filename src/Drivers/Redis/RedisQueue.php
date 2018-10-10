@@ -6,6 +6,7 @@ use Mallabee\Queue\Core\JobInterface;
 use Mallabee\Queue\Core\Queue;
 use Mallabee\Queue\Core\QueueInterface;
 use Mallabee\Queue\Core\Str;
+use Mallabee\Queue\Drivers\Redis\Factory as Redis;
 
 class RedisQueue extends Queue implements QueueInterface
 {

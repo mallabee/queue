@@ -149,3 +149,8 @@ Here's what we are missing:
 - Battle test the library with different production scenarios.
 - Remove the dependency of Carbon.
 - Haven't yet actually tested `Sqs` & `Redis` queues.
+
+#### Fix required
+
+- `FailingJob` is missing.
+- `RedisQueue` - `getConnection` - cannot make public.  

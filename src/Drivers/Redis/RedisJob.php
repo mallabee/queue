@@ -4,6 +4,7 @@ namespace Mallabee\Queue\Drivers\Redis;
 
 use Mallabee\Queue\Core\Job;
 use Mallabee\Queue\Core\JobInterface;
+use Mallabee\Queue\Drivers\Redis\Factory as Redis;
 use Psr\Container\ContainerInterface;
 
 class RedisJob extends Job implements JobInterface

@@ -4,6 +4,7 @@ namespace Mallabee\Queue\Drivers\Redis;
 
 use Mallabee\Queue\Core\QueueConnectorInterface;
 use Mallabee\Queue\Core\QueueInterface;
+use Mallabee\Queue\Drivers\Redis\Factory as Redis;
 
 class RedisConnector implements QueueConnectorInterface
 {
