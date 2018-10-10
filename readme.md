@@ -152,7 +152,7 @@ Advise the demo app that is located under `tests/example`.
 Contribution is highly appreciated.
 
 Here's what we are missing:
-- Drivers/Adapters for different queue management (Database, Redis, SQS, etc..).
+- Drivers/Adapters for different queue management (Database [without Doctrine or any other ORM], etc..).
 - Event Dispatcher Adapters for different event dispatcher libraries.
 - Container Adapters for e.g.: Symfony, Laravel, Slim, Zend, Yii.
 - Bundles for e.g.: Symfony, Laravel, Slim, Zend, Yii.
