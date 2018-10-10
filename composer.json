@@ -1,5 +1,5 @@
 {
-    "name": "mallabee/queue-manager",
+    "name": "mallabee/queue",
     "description": "Framework agnostic Queue Management for Beanstalkd, SQS, Redis, Database. easy to use in pure PHP projects as well as frameworks such as Symfony, Laravel, Yii2.",
     "license": "MIT",
     "require": {
