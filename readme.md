@@ -118,6 +118,7 @@ Advise the demo app that is located under `tests/example`.
 - `ExceptionHandlerInterface` instead of using Symfony `ExceptionHandler` directly.
 - In general - interfaces & null dummies for everything that isn't a must.
 - Default of connection.
+- `FailingJob` was merged to `Worker`->`failJob`.
 
 
 ### Structural difference
@@ -143,3 +144,4 @@ Here's what we are missing:
 - Testing.
 - Making sure all the features of `illuminate/queue` work in here too.
 - Battle test the library with different production scenarios.
+- Remove the dependency of Carbon.

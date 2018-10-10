@@ -8,7 +8,6 @@
 
 require_once '../../vendor/autoload.php';
 
-use Mallabee\Example\Events\JobFailedEvent;
 use Mallabee\Example\LeagueEventsDispatcher;
 use Mallabee\Queue\Core\Manager as Queue;
 use Mallabee\Queue\Core\Worker;
@@ -73,6 +72,9 @@ $eventsDispatcher->listen(JobProcessed::class, function ($leagueEvent, $queueEve
     /** @var JobProcessed $queueEvent */
     $jobId = $queueEvent->job->getJobId();
     echo "Job {$jobId} success" . PHP_EOL;
+
+    // Delete job after finishing processing it
+    $queueEvent->job->delete();
 });
 $eventsDispatcher->listen(JobFailed::class, function ($leagueEvent, $queueEvent, $payload) {
     /** @var JobFailed $queueEvent */

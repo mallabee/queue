@@ -2,6 +2,12 @@
 
 namespace Mallabee\Queue\Core;
 
+/**
+ * Currently exists until there will be a PSR for event dispatchers
+ *
+ * Interface EventDispatcherInterface
+ * @package Mallabee\Queue\Core
+ */
 interface EventDispatcherInterface
 {
     /**

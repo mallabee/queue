@@ -9,19 +9,7 @@
 namespace Mallabee\Example;
 
 use League\Event\Emitter;
-use Mallabee\Example\Events\JobExceptionOccurredEvent;
-use Mallabee\Example\Events\JobFailedEvent;
-use Mallabee\Example\Events\JobProcessedEvent;
-use Mallabee\Example\Events\JobProcessingEvent;
-use Mallabee\Example\Events\LoopingEvent;
-use Mallabee\Example\Events\WorkerStoppingEvent;
 use Mallabee\Queue\Core\EventDispatcherInterface;
-use Mallabee\Queue\Events\JobExceptionOccurred;
-use Mallabee\Queue\Events\JobFailed;
-use Mallabee\Queue\Events\JobProcessed;
-use Mallabee\Queue\Events\JobProcessing;
-use Mallabee\Queue\Events\Looping;
-use Mallabee\Queue\Events\WorkerStopping;
 
 class LeagueEventsDispatcher implements EventDispatcherInterface
 {

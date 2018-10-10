@@ -11,6 +11,8 @@
         "psr/log": "^1.0"
     },
     "require-dev": {
+        "ext-pcntl": "Required to use all features of the queue worker.",
+        "ext-posix": "Required to use all features of the queue worker.",
         "pda/pheanstalk": "^3.2",
         "aws/aws-sdk-php": "^3.0",
         "predis/predis": "5.8.*",

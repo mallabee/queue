@@ -8,6 +8,8 @@ use Psr\Container\ContainerInterface;
 
 abstract class Queue
 {
+    use InteractsWithTime;
+
     /**
      * The IoC container instance.
      *

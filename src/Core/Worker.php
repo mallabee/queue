@@ -5,6 +5,8 @@ namespace Mallabee\Queue\Core;
 use Carbon\Carbon;
 use Exception;
 use Mallabee\Queue\Exceptions\FatalThrowableError;
+use Mallabee\Queue\Exceptions\ManuallyFailedException;
+use Mallabee\Queue\Exceptions\MaxAttemptsExceededException;
 use Throwable;
 
 class Worker
@@ -466,7 +468,24 @@ class Worker
      */
     protected function failJob($connectionName, $job, $e)
     {
-        return FailingJob::handle($connectionName, $job, $e);
+        $job->markAsFailed();
+
+        if ($job->isDeleted()) {
+            return;
+        }
+
+        try {
+            // If the job has failed, we will delete it, call the "failed" method and then call
+            // an event indicating the job has failed so it can be logged if needed. This is
+            // to allow every developer to better keep monitor of their failed queue jobs.
+            $job->delete();
+
+            $job->failed($e);
+        } finally {
+            $this->events->dispatch(new \Mallabee\Queue\Events\JobFailed(
+                $connectionName, $job, $e ?: new ManuallyFailedException
+            ));
+        }
     }
 
     /**
