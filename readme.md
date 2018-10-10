@@ -101,13 +101,13 @@ Advise the demo app that is located under `tests/example`.
 
 ### Traits and their usage
 
-#### InteractsWithQueue
+#### InteractsWithQueue (Job trait)
 
 - Allows a job to interact with the queue - delete a job, etc..
 
-#### JobUtils
+#### JobUtils (Job trait)
 
-- Populate the job parameters to ease your interaction with the parameters types.
+- Populate the job parameters with ease. Helps when you want to easily interact with the parameters (due to ability to decide the parameters types).
 
 ### Definitions
 
