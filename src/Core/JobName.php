@@ -2,8 +2,6 @@
 
 namespace Mallabee\Queue\Core;
 
-use Mallabee\Queue\Core\Str;
-
 class JobName
 {
     /**

@@ -97,6 +97,7 @@ $eventsDispatcher->listen(JobExceptionOccurred::class, function ($leagueEvent, $
 // Initiate a worker
 $worker = new Worker($queue, $eventsDispatcher);
 
+// Run the worker daemonized - less preferred
 try {
     $worker->daemon(Queue::DEFAULT_CONNECTION, 'default', $workerOptions);
 }
@@ -104,5 +105,23 @@ catch (\Exception $ex) {
     var_dump($ex->getMessage());
 }
 
+// Run the worker daemonized - until there are no more jobs
+try {
+    $worker->daemon(Queue::DEFAULT_CONNECTION, 'default', $workerOptions);
+    sleep (3);
+}
+catch (\Exception $ex) {
+    var_dump($ex->getMessage());
+}
+
+// Run one job
+try {
+    $worker->runNextJob(Queue::DEFAULT_CONNECTION, 'default', $workerOptions);
+}
+catch (\Exception $ex) {
+    var_dump($ex->getMessage());
+}
+
+// Peek on next job - if you like
 /*$job = $worker->getNextJob($instance, 'default');
 var_dump($job->getRawBody());*/

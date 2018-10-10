@@ -8,12 +8,8 @@
 
 namespace Mallabee\Queue\Core;
 
-
-use Mallabee\Queue\Core\EventDispatcherInterface;
-
 class NullEventDispatcher implements EventDispatcherInterface
 {
-
     /**
      * @inheritDoc
      */

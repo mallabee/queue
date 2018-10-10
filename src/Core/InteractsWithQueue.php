@@ -2,8 +2,6 @@
 
 namespace Mallabee\Queue\Core;
 
-use Mallabee\Queue\Core\JobInterface;
-
 trait InteractsWithQueue
 {
     /**

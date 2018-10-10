@@ -79,48 +79,7 @@ class LeagueEventsDispatcher implements EventDispatcherInterface
      */
     public function dispatch($event, $payload = [], $halt = false)
     {
-        try {
-//            $leagueEvent = null;
-//            switch (true)
-//            {
-//                case $event instanceof JobExceptionOccurred:
-//                    $leagueEvent = new JobExceptionOccurredEvent($event->connectionName, $event->job, $event->exception);
-//                    break;
-//                case $event instanceof JobFailed:
-//                    $leagueEvent = new JobFailedEvent($event->connectionName, $event->job, $event->exception);
-//                    break;
-//                case $event instanceof JobProcessed:
-//                    $leagueEvent = new JobProcessedEvent($event->connectionName, $event->job);
-//                    break;
-//                case $event instanceof JobProcessing:
-//                    $leagueEvent = new JobProcessingEvent($event->connectionName, $event->job);
-//                    break;
-//                case $event instanceof Looping:
-//                    $leagueEvent = new LoopingEvent($event->connectionName, $event->queue);
-//                    break;
-//                case $event instanceof WorkerStopping:
-//                    $leagueEvent = new WorkerStoppingEvent($event->status);
-//                    break;
-//            }
-//            $leagueEvent->payload = $payload;
-//var_dump($event);die();
-            //$dispatchedEvent = $this->emitter->emit($event);
-            /*[
-                'event' => $event,
-                'payload' => $payload,
-                'halt' => $halt
-            ]*/
-
-
-            $dispatchedEvent = $this->emitter->emit(get_class($event), $event, $payload);
-            //var_dump($dispatchedEvent);
-        }
-        catch (\Exception $ex) {
-            var_dump(get_class($ex));
-            var_dump($ex->getMessage());
-        }
-        //die('gg');
-        return $dispatchedEvent;
+        return $this->emitter->emit(get_class($event), $event, $payload);
     }
 
     /**

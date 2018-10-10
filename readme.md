@@ -2,6 +2,8 @@ Date: October 9, 2018.
 
 State: Still Active.
 
+Leaning on `illuminate/queue` version: 5.7.9
+
 ## What?
 
 Framework agnostic, background task management using multiple drivers with custom drivers registering availability.
@@ -93,14 +95,14 @@ Advise the demo app that is located under `tests/example`.
 
 ### Definitions
 
-- Manager/Queue Manager (sometimes referred to as Queue)
-- Worker
-- Job
-- Connection
-- Queue
-- Driver/Adapter
-- Connector
-- Event
+- Manager/Queue Manager (sometimes referred to as Queue) - The manager that registers drivers, connect to the queue, pushes/seeds jobs to the queue.
+- Worker - The worker that pulls jobs from queue, fire relevant events.
+- Job - The work that needs to be done.
+- Connection - A queue connection.
+- Queue - A queue.
+- Driver/Adapter - A driver is the way to interact with new queue type (e.g.: Beanstalkd, SQS, Redis, Database).
+- Connector - A driver connector is the class that makes the connection between a queue configuration and a driver and generate an instance.
+- Event - An event is fired when relevant stuff happens (such as job processed, job failed). You can listen to these events and interact with the queue while they occur.
 
 ## MQ and Laravel Queues (`illuminate/queue`)
 
@@ -119,6 +121,7 @@ Advise the demo app that is located under `tests/example`.
 - In general - interfaces & null dummies for everything that isn't a must.
 - Default of connection.
 - `FailingJob` was merged to `Worker`->`failJob`.
+- `Str` & `Arr` helper classes - took only needed functions.
 
 
 ### Structural difference
@@ -145,3 +148,4 @@ Here's what we are missing:
 - Making sure all the features of `illuminate/queue` work in here too.
 - Battle test the library with different production scenarios.
 - Remove the dependency of Carbon.
+- Haven't yet actually tested `Sqs` & `Redis` queues.

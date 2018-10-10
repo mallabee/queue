@@ -2,6 +2,7 @@
 **/.idea/workspace.xml
 **/.idea/tasks.xml
 **/.idea/php.xml
+**/.idea/dictionaries.xml
 
 # ignore vendor downloaded composer packages folder
 vendor/**/*
