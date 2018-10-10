@@ -8,7 +8,7 @@
 
 require_once '../../vendor/autoload.php';
 
-use Mallabee\Example\LeagueEventsDispatcher;
+use Mallabee\ExampleEasy\LeagueEventsDispatcher;
 use Mallabee\Queue\Core\Manager as Queue;
 use Mallabee\Queue\Core\Worker;
 use Mallabee\Queue\Core\WorkerOptions;
@@ -16,6 +16,7 @@ use Mallabee\Queue\Events\JobExceptionOccurred;
 use Mallabee\Queue\Events\JobFailed;
 use Mallabee\Queue\Events\JobProcessed;
 use Mallabee\Queue\Events\JobProcessing;
+use Mallabee\Queue\Events\WorkerStopping;
 
 
 // Defaults
@@ -26,7 +27,7 @@ $options = [
     'sleep' => 3,
     'tries' => 0,
     'force' => false,
-    'stop-when-empty' => false
+    'stop-when-empty' => true
 ];
 
 function getOptions(): array
@@ -54,14 +55,7 @@ $instance = $queue->configure('beanstalkd', [
 
 
 
-// Prepare the worker options
-$workerOptions = new WorkerOptions(
-    getOption('delay'), getOption('memory'),
-    getOption('timeout'), getOption('sleep'),
-    getOption('tries'), getOption('force'),
-    getOption('stop-when-empty')
-);
-
+// Prepare the worker events
 $eventsDispatcher = new LeagueEventsDispatcher;
 $eventsDispatcher->listen(JobProcessing::class, function ($leagueEvent, $queueEvent, $payload) {
     /** @var JobProcessing $queueEvent */
@@ -94,34 +88,32 @@ $eventsDispatcher->listen(JobExceptionOccurred::class, function ($leagueEvent, $
     // $this->logFailedJob($queueEvent);
 });
 
+
+
 // Initiate a worker
 $worker = new Worker($queue, $eventsDispatcher);
 
-// Run the worker daemonized - less preferred
-try {
-    $worker->daemon(Queue::DEFAULT_CONNECTION, 'default', $workerOptions);
-}
-catch (\Exception $ex) {
-    var_dump($ex->getMessage());
-}
 
 // Run the worker until there are no more jobs
+$options['stop-when-empty'] = true;
+$workerOptions = new WorkerOptions(
+    getOption('delay'), getOption('memory'),
+    getOption('timeout'), getOption('sleep'),
+    getOption('tries'), getOption('force'),
+    getOption('stop-when-empty')
+);
+$eventsDispatcher->listen(WorkerStopping::class, function ($leagueEvent, $queueEvent, $payload) {
+    /** @var WorkerStopping $queueEvent */
+
+    echo 'Sleeping 3..' . PHP_EOL;
+    sleep (3);
+    echo 'Finished all works..' . PHP_EOL;
+
+    // $this->logFailedJob($queueEvent);
+});
 try {
     $worker->daemon(Queue::DEFAULT_CONNECTION, 'default', $workerOptions);
-    sleep (3);
 }
-catch (\Exception $ex) {
+catch (\Throwable $ex) {
     var_dump($ex->getMessage());
 }
-
-// Run one job
-try {
-    $worker->runNextJob(Queue::DEFAULT_CONNECTION, 'default', $workerOptions);
-}
-catch (\Exception $ex) {
-    var_dump($ex->getMessage());
-}
-
-// Peek on next job - if you like
-/*$job = $worker->getNextJob($instance, 'default');
-var_dump($job->getRawBody());*/

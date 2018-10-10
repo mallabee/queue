@@ -22,8 +22,8 @@ $queue->setAsGlobal();
 
 
 // Create Jobs
-$jobId = $queue->push(\Mallabee\Example\PrintMessageJob::class, ['message' => "I am job 1"]);
+$jobId = $queue->push(\Mallabee\ExampleEasy\PrintMessageJob::class, ['message' => "I am job 1"]);
 echo "Job {$jobId} was pushed" . PHP_EOL;
 
-$jobId = Queue::push(\Mallabee\Example\PrintMessageJob::class, ['message' => "I am job 2"]);
+$jobId = Queue::push(\Mallabee\ExampleEasy\PrintMessageJob::class, ['message' => "I am job 2"]);
 echo "Job {$jobId} was pushed" . PHP_EOL;

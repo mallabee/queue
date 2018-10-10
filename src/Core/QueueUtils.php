@@ -27,12 +27,12 @@ class QueueUtils
     /**
      * QueueUtils constructor.
      *
-     * @param Queue $queueConnection
+     * @param QueueInterface $queue
      * @param null|LoggerInterface $logger
      */
-    public function __construct(Queue $queueConnection, ?LoggerInterface $logger = null)
+    public function __construct(QueueInterface $queue, ?LoggerInterface $logger = null)
     {
-        $this->instance = $queueConnection;
+        $this->instance = $queue;
         $this->logger = !empty($logger) ? $logger : new NullLogger();
     }
 }

@@ -6,7 +6,7 @@
  * Time: 10:35 PM
  */
 
-namespace Mallabee\Example;
+namespace Mallabee\ExampleEasy;
 
 use League\Event\Emitter;
 use Mallabee\Queue\Core\EventDispatcherInterface;

@@ -6,7 +6,7 @@
  * Time: 10:35 PM
  */
 
-namespace Mallabee\Example;
+namespace Mallabee\ExampleEasy;
 
 use Mallabee\Queue\Core\InteractsWithQueue;
 use Mallabee\Queue\Core\JobUtils;

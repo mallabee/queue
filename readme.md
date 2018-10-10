@@ -47,6 +47,17 @@ Advantages / Features:
 First thing to know is that most of the missing information you can find at `illuminate/queue` docs as our package is pretty similar (although with some changes):
 https://laravel.com/docs/5.7/queues#introduction
 
+### What will you need/might need to know to start
+
+- Basic PHP understanding.
+- What is queue management & background jobs.
+- Beanstalkd.
+- Amazon SQS.
+- Redis.
+- Event Dispatcher.
+- Container.
+- Supervisord.
+
 ### Seeding work to Queue Manager
 
 To start, create a new Queue manager instance.
@@ -97,7 +108,9 @@ $queue->setAsGlobal();
 
 ### Using the queue and processing work via the Worker
 
-Advise the demo app that is located under `tests/example` to understand how you can pull jobs from the queue and process them.
+Advise the demo app that is located under `example` folder to understand how you can pull jobs from the queue and process them.
+
+There are multiple folders in there - we suggest to start with `ExampleEasy` to get an understanding, this example interacts with `beanstalkd` for the queue management.
 
 ### Traits and their usage
 
@@ -109,7 +122,7 @@ Advise the demo app that is located under `tests/example` to understand how you 
 
 - Populate the job parameters with ease. Helps when you want to easily interact with the parameters (due to ability to decide the parameters types).
 
-### Passing your Container, Event Dispatcher, Logger, ExceptionHandler
+### Passing your Container, Event Dispatcher, Logger, Exception Handler
 
 #### Container
 
