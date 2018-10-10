@@ -2,13 +2,13 @@ Date: October 9, 2018.
 
 State: Still Active.
 
-##What?
+## What?
 
 Framework agnostic, background task management using multiple drivers with custom drivers registering availability.
 
 What is a background task management? simple words - offloading work to background jobs. read more: https://www.slideshare.net/JurianSluiman/queue-your-work  
 
-##Why?
+## Why?
 
 We faced a problem needing a queue management for a Symfony side-project and a pure PHP project that has a framework agnostic approach in mind. This means - low, if at all amount of dependencies.
 
@@ -18,7 +18,7 @@ The available popular packages at that time were:
 
 As each package had it's problems, we sat to create this library - a framework agnostic, queue background task management, available for use for pure PHP projects as well.
 
-##How?
+## How?
 
 ENTER - Mallabee Queue a.k.a MQ / MQueue (by [mallabee.com](mallabee.com))
 
@@ -32,13 +32,13 @@ Advantages / Features:
 - Register custom drivers.
 - Use of generators to allow the project creator to consume the jobs as they wish.
 
-###Introduction
+### Introduction
 
 Best practices:
 - Why not daemonizing a PHP script? - PHP is not good for long background processes - read more: http://symcbean.blogspot.com/2010/02/php-and-long-running-processes.html
 - We don't know when is your application is "Down for maintenance".
 
-###Usage
+### Usage
 
 First, create a new Queue manager instance.
 
@@ -129,7 +129,7 @@ foreach ($generator as $jobData) {
 }
 ```
 
-###Definitions
+### Definitions
 
 - Manager/Queue Manager (sometimes referred to as Queue)
 - Worker
@@ -140,9 +140,9 @@ foreach ($generator as $jobData) {
 - Connector
 - Event
 
-##MQ and Laravel Queues (`illuminate/queue`)
+## MQ and Laravel Queues (`illuminate/queue`)
 
-###Main differences between MQ and Laravel Queues (`illuminate/queue`)
+### Main differences between MQ and Laravel Queues (`illuminate/queue`)
 
 - Folder structure.
 - Container can be null, not a must and not passed.
@@ -158,7 +158,7 @@ foreach ($generator as $jobData) {
 - Default of connection.
 
 
-###Structural difference
+### Structural difference
 
 | Was in place (`illuminate/queue`) | New place in MQ    |
 |-----------------------------------|--------------------|
@@ -168,7 +168,7 @@ foreach ($generator as $jobData) {
 | WorkerOptions                     | Core\WorkerOptions |
 
 
-###Contribute
+### Contribute
 
 Contribution is highly appreciated.
 
