@@ -21,7 +21,7 @@ class LeagueEventsDispatcher implements EventDispatcherInterface
      *
      * @param null|Emitter $emitter
      */
-    public function __construct(?Emitter $emitter)
+    public function __construct(?Emitter $emitter = null)
     {
         $this->emitter = !empty($emitter) ? $emitter : new Emitter;
     }
