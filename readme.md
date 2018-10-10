@@ -97,7 +97,7 @@ $queue->setAsGlobal();
 
 ### Using the queue and processing work via the Worker
 
-Advise the demo app that is located under `tests/example`.
+Advise the demo app that is located under `tests/example` to understand how you can pull jobs from the queue and process them.
 
 ### Traits and their usage
 
@@ -123,7 +123,7 @@ Advise the demo app that is located under `tests/example`.
 ### Best practices for background task management
 
 - Why not daemonizing a PHP script? - PHP is not good for long background processes - read more: http://symcbean.blogspot.com/2010/02/php-and-long-running-processes.html
-
+- Why not using `crontab` to run the worker? cron can only generate a worker each one minute at minimum.
 
 
 ## MQ and Laravel Queues (`illuminate/queue`)
