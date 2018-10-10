@@ -99,6 +99,16 @@ $queue->setAsGlobal();
 
 Advise the demo app that is located under `tests/example`.
 
+### Traits and their usage
+
+#### InteractsWithQueue
+
+- Allows a job to interact with the queue - delete a job, etc..
+
+#### JobUtils
+
+- Populate the job parameters to ease your interaction with the parameters types.
+
 ### Definitions
 
 - Manager/Queue Manager (sometimes referred to as Queue) - The manager that registers drivers, connect to the queue, pushes/seeds jobs to the queue.
