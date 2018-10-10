@@ -1,0 +1,7 @@
+# ignore some IntelliJ IDEA files
+**/.idea/workspace.xml
+**/.idea/tasks.xml
+**/.idea/php.xml
+
+# ignore vendor downloaded composer packages folder
+vendor/**/*

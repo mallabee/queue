@@ -1,0 +1,44 @@
+{
+    "name": "mallabee/queue-manager",
+    "description": "Framework agnostic Queue Management for Beanstalkd, SQS, Redis, Database. easy to use in pure PHP projects as well as frameworks such as Symfony, Laravel, Yii2.",
+    "license": "MIT",
+    "require": {
+        "php": "^7.1",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "nesbot/carbon": "^2.0",
+        "psr/container": "^1.0",
+        "psr/log": "^1.0"
+    },
+    "require-dev": {
+        "pda/pheanstalk": "^3.2",
+        "league/event": "^2.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mallabee\\Queue\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Mallabee\\Example\\": "tests/example/"
+        }
+    },
+    "suggest": {
+        "ext-pcntl": "Required to use all features of the queue worker.",
+        "ext-posix": "Required to use all features of the queue worker.",
+        "aws/aws-sdk-php": "Required to use the SQS queue driver (^3.0).",
+        "predis/predis": "Required to use the Redis queue driver (5.8.*).",
+        "pda/pheanstalk": "Required to use the Beanstalk queue driver (^3.0).",
+        "league/event": "For handling worker events, catching exceptions, interacting with queues, etc (^2.1).."
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "authors": [
+        {
+            "name": "Din Bracha",
+            "email": "dinbrca@gmail.com"
+        }
+    ]
+}
