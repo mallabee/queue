@@ -13,14 +13,17 @@ use Mallabee\Queue\Core\EventDispatcherInterface;
 
 class LeagueEventsDispatcher implements EventDispatcherInterface
 {
+    /** @var Emitter */
     public $emitter;
 
     /**
-     * MyEventsDispatcher constructor.
+     * LeagueEventsDispatcher constructor.
+     *
+     * @param null|Emitter $emitter
      */
-    public function __construct()
+    public function __construct(?Emitter $emitter)
     {
-        $this->emitter = new Emitter;
+        $this->emitter = !empty($emitter) ? $emitter : new Emitter;
     }
 
     /**

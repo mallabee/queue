@@ -109,6 +109,20 @@ Advise the demo app that is located under `tests/example` to understand how you 
 
 - Populate the job parameters with ease. Helps when you want to easily interact with the parameters (due to ability to decide the parameters types).
 
+### Passing your Container, Event Dispatcher, Logger
+
+#### Container
+
+We are using the popular PSR container interface.
+
+#### Event Dispatcher
+
+Notice that we only use the `listen` & `dispatch` of the interface, no need to implement anything else.
+
+#### Logger
+
+We are using the popular PSR logger interface.
+
 ### Definitions
 
 - Manager/Queue Manager (sometimes referred to as Queue) - The manager that registers drivers, connect to the queue, pushes/seeds jobs to the queue.
