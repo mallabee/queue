@@ -9,6 +9,8 @@
 namespace Mallabee\Queue\Core;
 
 use \Mallabee\Queue\Drivers\Beanstalkd\BeanstalkdConnector;
+use Mallabee\Queue\Drivers\Redis\RedisConnector;
+use Mallabee\Queue\Drivers\Sqs\SqsConnector;
 use Mallabee\Queue\Exceptions\NoConnectionFound;
 use \Mallabee\Queue\Exceptions\UnsupportedDriver;
 use Psr\Container\ContainerInterface;
@@ -100,6 +102,16 @@ class Manager
             //$this->registerDriver('beanstalkd', 'Beanstalkd', '\Drivers\Beanstalkd', 'Drivers/Beanstalkd');
         } catch (\Exception $ex) {
         }
+
+        try {
+            $this->registerDriver('sqs', new SqsConnector());
+        } catch (\Exception $ex) {
+        }
+
+        /*try {
+            $this->registerDriver('redis', new RedisConnector());
+        } catch (\Exception $ex) {
+        }*/
     }
 
     /**
@@ -129,14 +141,6 @@ class Manager
     public function registerDriver(string $driverName, QueueConnectorInterface $connector)
     {
         self::$drivers[$driverName] = $connector;
-
-        /**
-         * [
-         * 'baseFileName' => $baseFileName,
-         * 'namespace' => $namespace,
-         * 'folder' => $folder
-         * ]
-         */
     }
 
     /**
@@ -152,17 +156,6 @@ class Manager
 
         if (!array_key_exists($name, $this->connections))
             throw new NoConnectionFound("Could not find connection with name of ${name}");
-
-        //$name = $name ?: $this->getDefaultDriver();
-
-        // If the connection has not been resolved yet we will resolve it now as all
-        // of the connections are resolved when they are actually needed so we do
-        // not make any unnecessary connection to the various queue end-points.
-        /*if (! isset($this->connections[$name])) {
-            $this->connections[$name] = $this->resolve($name);
-
-            $this->connections[$name]->setContainer($this->app);
-        }*/
 
         return $this->connections[$name];
     }

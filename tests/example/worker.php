@@ -105,7 +105,7 @@ catch (\Exception $ex) {
     var_dump($ex->getMessage());
 }
 
-// Run the worker daemonized - until there are no more jobs
+// Run the worker until there are no more jobs
 try {
     $worker->daemon(Queue::DEFAULT_CONNECTION, 'default', $workerOptions);
     sleep (3);

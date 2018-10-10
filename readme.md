@@ -4,11 +4,15 @@ State: Still Active.
 
 Leaning on `illuminate/queue` version: 5.7.9
 
+
+
 ## What?
 
 Framework agnostic, background task management using multiple drivers with custom drivers registering availability.
 
 What is a background task management? simple words - offloading work to background jobs. read more: https://www.slideshare.net/JurianSluiman/queue-your-work  
+
+
 
 ## Why?
 
@@ -19,6 +23,8 @@ The available popular packages at that time were:
 - `yiisoft/yii2-queue` (which is bound to the Yii Framework).
 
 As each package had it's problems, we sat to create this library - a framework agnostic, queue background task management, available for use for pure PHP projects as well.
+
+
 
 ## How?
 
@@ -34,18 +40,19 @@ Advantages / Features:
 - Register custom drivers.
 - Use of generators to allow the project creator to consume the jobs as they wish.
 
-### Introduction
 
-Best practices:
-- Why not daemonizing a PHP script? - PHP is not good for long background processes - read more: http://symcbean.blogspot.com/2010/02/php-and-long-running-processes.html
-- We don't know when is your application is "Down for maintenance".
 
-### Usage
+## Usage
 
-First, create a new Queue manager instance.
+First thing to know is that most of the missing information you can find at `illuminate/queue` docs as our package is pretty similar (although with some changes):
+https://laravel.com/docs/5.7/queues#introduction
+
+### Seeding work to Queue Manager
+
+To start, create a new Queue manager instance.
 
 ```PHP
-use Core\Manager as Queue;
+use Mallabee\Queue\Core\Manager as Queue;
 
 $queue = new Queue;
 
@@ -58,7 +65,7 @@ $instance = $queue->configure('beanstalkd', [
 $queue->setAsGlobal();
 ```
 
-Once the instance has been registered and configured. You may use it like so:
+Once the instance has been registered and configured. You may use it like so to seed new jobs:
 
 ```PHP
 // As an instance...
@@ -68,13 +75,12 @@ $queue->push('SendEmail', array('message' => $message));
 Queue::push('SendEmail', array('message' => $message));
 ```
 
-
 ### Registering a custom queue handler driver
 
 **Note:** Make sure all your connector, driver and job files are inside same folder
 
 ```php
-use Core\Manager as Queue;
+use Mallabee\Queue\Core\Manager as Queue;
 
 $queue = new Queue;
 
@@ -89,7 +95,7 @@ $instance = $queue->configure('beanstalkd', [
 $queue->setAsGlobal();
 ```
 
-### Using the queue
+### Using the queue and processing work via the Worker
 
 Advise the demo app that is located under `tests/example`.
 
@@ -103,6 +109,12 @@ Advise the demo app that is located under `tests/example`.
 - Driver/Adapter - A driver is the way to interact with new queue type (e.g.: Beanstalkd, SQS, Redis, Database).
 - Connector - A driver connector is the class that makes the connection between a queue configuration and a driver and generate an instance.
 - Event - An event is fired when relevant stuff happens (such as job processed, job failed). You can listen to these events and interact with the queue while they occur.
+
+### Best practices for background task management
+
+- Why not daemonizing a PHP script? - PHP is not good for long background processes - read more: http://symcbean.blogspot.com/2010/02/php-and-long-running-processes.html
+
+
 
 ## MQ and Laravel Queues (`illuminate/queue`)
 
@@ -134,7 +146,8 @@ Advise the demo app that is located under `tests/example`.
 | WorkerOptions                     | Core\WorkerOptions |
 
 
-### Contribute
+
+## Contribute
 
 Contribution is highly appreciated.
 
