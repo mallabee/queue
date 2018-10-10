@@ -76,7 +76,6 @@ use Core\Manager as Queue;
 
 $queue = new Queue;
 
-// $queue->registerDriver('beanstalkd', '\Drivers\Beanstalkd', 'Drivers/Beanstalkd');
 $this->registerDriver('beanstalkd', new \Drivers\Beanstalkd\BeanstalkdConnector());
 
 $instance = $queue->configure('beanstalkd', [
@@ -88,46 +87,9 @@ $instance = $queue->configure('beanstalkd', [
 $queue->setAsGlobal();
 ```
 
+### Using the queue
 
-```php
-$generator = $queueService->runQueue($queueConfig, $queueLogger, null,
-    function (\Exception $e, \Pheanstalk\Pheanstalk $pheanstalk, \Pheanstalk\Job $job) use ($queueLogger) {
-        if ($e instanceof \MarketplaceHandler\Exceptions\MarketplaceOperationTimeoutException) {
-            // Occurs when we have cURL errors
-            // Don't delete nor continue until we stop having cURL errors
-            // [2018-01-28 06:22:38] Monolog.ERROR: [CrawlerService] Error starting worker due to error code 0 - cURL error 6: Could not resolve host: webservices.amazon.com (see http://curl.haxx.se/libcurl/c/libcurl-errors.html) [] []
-
-            $queueLogger->error("cURL error: " . $e->getMessage());
-
-            // Remove the job from the queue
-            $queueLogger->error("Monitor: Deleting queue worker due to marketplace throttle");
-            $pheanstalk->delete($job);
-        } else if ($e instanceof \MarketplaceHandler\Exceptions\MarketplaceErrorException) {
-            // If we receive 404 or 503 from marketplace - just delete the job,
-            // the products id's aren't that important
-
-            // Remove the job from the queue
-            $queueLogger->error("Monitor: Deleting queue worker due to error in marketplace");
-            $pheanstalk->delete($job);
-        } else if ($e instanceof \Exception) {
-            $message = "Monitor: Deleting queue worker due to error in marketplace. Exception: {$e->getMessage()} (at file: {$e->getFile()}, at line: {$e->getLine()}.";
-
-            $slackBot = new \CoreBundle\Service\SlackBotService();
-            $slackBot->sendMessage($slackBot->getExceptionsClient(), $message);
-
-            // Remove the job from the queue
-            $queueLogger->error($message);
-            $pheanstalk->delete($job);
-        }
-    });
-foreach ($generator as $jobData) {
-    $workerInstance = null;
-    $workerData     = null;
-
-    $decodedJobData = json_decode($jobData);
-    switch ($decodedJobData->workerType) {
-}
-```
+Advise the demo app that is located under `tests/example`.
 
 ### Definitions
 

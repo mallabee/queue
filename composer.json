@@ -12,6 +12,8 @@
     },
     "require-dev": {
         "pda/pheanstalk": "^3.2",
+        "aws/aws-sdk-php": "^3.0",
+        "predis/predis": "5.8.*",
         "league/event": "^2.1"
     },
     "autoload": {
