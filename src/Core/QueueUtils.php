@@ -16,7 +16,7 @@ use Psr\Log\LoggerInterface;
  * Class QueueUtils
  * @package Core
  */
-class QueueUtils
+abstract class QueueUtils
 {
     /** @var LoggerInterface $logger */
     protected $logger;
