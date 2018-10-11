@@ -188,6 +188,10 @@ Used in the queue utils.
 | WorkerOptions                     | Core\WorkerOptions |
 
 
+### Missing implementations
+
+- `SerializesModels` & `SerializesAndRestoresModelIdentifiers` traits - they are using `Eloquent` models.
+
 
 ## Contribute
 
