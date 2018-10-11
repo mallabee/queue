@@ -132,7 +132,9 @@ class Manager
         /** @var QueueConnectorInterface $connector */
         $connector = self::$drivers[$driverName];
 
+        /** @var Queue|QueueInterface $connection */
         $connection = $connector->connect($config);
+        $connection->setContainer((!empty($this->container)) ? $this->container : null);
         $this->connections[$connectionName] = $connection;
 
         return $connection;

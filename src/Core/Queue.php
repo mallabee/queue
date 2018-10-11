@@ -13,7 +13,7 @@ abstract class Queue
     /**
      * The IoC container instance.
      *
-     * @var ContainerInterface
+     * @var null|ContainerInterface
      */
     protected $container;
 
@@ -238,10 +238,10 @@ abstract class Queue
     /**
      * Set the IoC container instance.
      *
-     * @param  ContainerInterface $container
+     * @param  null|ContainerInterface $container
      * @return void
      */
-    public function setContainer(ContainerInterface $container)
+    public function setContainer(?ContainerInterface $container)
     {
         $this->container = $container;
     }

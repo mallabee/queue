@@ -42,10 +42,8 @@ function getOption(string $option)
     return array_key_exists($option, getOptions()) ? getOptions()[$option] : null;
 }
 
-
-
 // Create a Queue instance that the worker will be using
-$queue = new Queue;
+$queue = new Queue(new \Mallabee\ExampleEasy\ExampleContainer());
 
 $instance = $queue->configure('beanstalkd', [
     'host' => 'localhost',

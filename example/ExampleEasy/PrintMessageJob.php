@@ -9,7 +9,10 @@
 namespace Mallabee\ExampleEasy;
 
 use Mallabee\Queue\Core\InteractsWithQueue;
+use Mallabee\Queue\Core\JobInterface;
 use Mallabee\Queue\Core\JobUtils;
+use Mallabee\Queue\Drivers\Beanstalkd\BeanstalkdJob;
+use Psr\Log\LoggerInterface;
 
 class PrintMessageJob
 {
@@ -19,19 +22,23 @@ class PrintMessageJob
     public $message;
 
     /**
-     * @param $job
+     * @param JobInterface $job
      * @param $payload
      *
      * @throws \ReflectionException
      */
     public function fire($job, $payload)
     {
+        /** @var BeanstalkdJob $job */
+
         $this->populate($payload);
 
-        /*var_dump($job);
-        var_dump($payload);
-        var_dump($this->message);
-        die('ss');*/
+        if (!empty($job->getContainer())) {
+            /** @var LoggerInterface $logger */
+            $logger = $job->getContainer()->get('logger');
+            if (!empty($logger))
+                $logger->info('Logging using container');
+        }
 
         echo $this->message . PHP_EOL;
     }

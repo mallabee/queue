@@ -180,7 +180,6 @@ abstract class Job
     protected function resolve($class)
     {
         return new $class;
-        //return $this->container->make($class);
     }
 
     /**
