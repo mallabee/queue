@@ -35,4 +35,13 @@ class QueueUtils
         $this->instance = $queue;
         $this->logger = !empty($logger) ? $logger : new NullLogger();
     }
+
+    /**
+     * Pull jobs from queues and clean the queue
+     *
+     * @param callable|null $onCleanFinished
+     *
+     * @throws \Exception Throws exception on job fails
+     */
+    abstract public function cleanQueue($onCleanFinished = null);
 }

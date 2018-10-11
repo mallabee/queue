@@ -11,11 +11,7 @@ namespace Mallabee\Queue\Drivers\Redis;
 class RedisQueueUtils extends \Mallabee\Queue\Core\QueueUtils
 {
     /**
-     * Pull jobs from queues and clean the queue
-     *
-     * @param callable|null $onCleanFinished
-     *
-     * @throws \Exception Throws exception on job fails
+     * @inheritdoc
      */
     public function cleanQueue($onCleanFinished = null)
     {
