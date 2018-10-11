@@ -13,12 +13,17 @@ use Mallabee\Queue\Core\JobInterface;
 use Mallabee\Queue\Core\JobUtils;
 use Mallabee\Queue\Drivers\Beanstalkd\BeanstalkdJob;
 use Psr\Log\LoggerInterface;
+use \JMS\Serializer\Annotation\Type;
 
-class PrintMessageJob
+class PrintMessageWithSerializerJob
 {
     use InteractsWithQueue, JobUtils;
 
-    /** @var string $message */
+    /**
+     * @var string $message
+     *
+     * @Type("string")
+     */
     public $message;
 
     /**

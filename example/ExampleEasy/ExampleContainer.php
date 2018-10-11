@@ -8,6 +8,7 @@
 
 namespace Mallabee\ExampleEasy;
 
+use Mallabee\Queue\Core\JobSerializerInterface;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
@@ -19,10 +20,13 @@ class ExampleContainer implements ContainerInterface
 
     /**
      * ExampleContainer constructor.
+     *
+     * @param JobSerializerInterface $serializer
      */
-    public function __construct()
+    public function __construct(JobSerializerInterface $serializer)
     {
         $this->di['logger'] = new ExampleLogger();
+        $this->di['job_serializer'] = $serializer;
     }
 
     /**

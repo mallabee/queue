@@ -5,7 +5,7 @@
  * Date: 10/10/18
  * Time: 7:03 PM
  */
-use Mallabee\ExampleEasy\LeagueEventsDispatcher;
+use Mallabee\Queue\CommonAdapters\LeagueEventsDispatcher;
 use Mallabee\Queue\Events\JobExceptionOccurred;
 use Mallabee\Queue\Events\JobFailed;
 use Mallabee\Queue\Events\JobProcessed;

@@ -10,7 +10,6 @@ require_once '../../vendor/autoload.php';
 use Mallabee\Queue\Core\Manager as Queue;
 use Mallabee\Queue\Core\Worker;
 use Mallabee\Queue\Core\WorkerOptions;
-use Mallabee\Queue\Events\WorkerStopping;
 
 require_once './base_worker.php';
 

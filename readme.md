@@ -1,4 +1,4 @@
-Date: October 9, 2018.
+Date updated: October 11, 2018.
 
 State: Still Active.
 
@@ -28,7 +28,7 @@ As each package had it's problems, we sat to create this library - a framework a
 
 ## How?
 
-ENTER - Mallabee Queue a.k.a MQ / MQueue (by [mallabee.com](mallabee.com))
+ENTER - Mallabee Queue a.k.a MQ / MQueue (by [mallabee.com](https://www.mallabee.com))
 
 By leveraging the understanding of queues, best practices and ease of use from multiple libraries such as `yiisoft/yii2-queue`, `illuminate/queue`.
 
@@ -38,7 +38,7 @@ Advantages / Features:
 
 - Framework agnostic - use in pure PHP projects, Symfony, Laravel, Yii, Zend, anything you wish.
 - Register custom drivers.
-- Use of generators to allow the project creator to consume the jobs as they wish.
+- Allow usage of custom serializer/de-serializer (like `jms/serializer`) when encoding/decoding jobs payloads via a container, if not provided - uses `json_encode`, `json_decode`.
 
 
 
@@ -122,13 +122,15 @@ There are multiple folders in there - we suggest to start with `ExampleEasy` to 
 
 - Populate the job parameters with ease. Helps when you want to easily interact with the parameters (due to ability to decide the parameters types).
 
-### Passing your Container, Event Dispatcher, Logger, Exception Handler
+### Passing your Container, Event Dispatcher, Logger, Exception Handler, Serializer
 
 #### Container
 
 We are using the popular PSR container interface.
 
 The container is passed to the job in-order to allow you to get your dependencies easily.
+
+Also - it's used for custom serializing / de-serializing of the job payload.
 
 #### Event Dispatcher
 
@@ -139,6 +141,18 @@ Notice that we only use the `listen` & `dispatch` of the interface, no need to i
 We are using the popular PSR logger interface.
 
 Used in the queue utils.
+
+#### Serializer - Serializing (encoding) / De-serializing (decoding) job payloads with a custom serializer.
+
+You are able to serializer / de-serialize a job payload via a custom serializer such as JMS serializer (`jms/serializer`) and Symfony Serializer.
+
+This allows you to better control the final object of the payload that will be registered to the queue or passed as payload to the job when it's being processed.
+
+To do so you will have to use a container which has a key called `job_serializer`.
+
+The serializer must implement the `JobSerializerInterface`.
+
+See the demo for example of how it's actually done.
 
 ### Definitions
 
@@ -176,6 +190,7 @@ Used in the queue utils.
 - Default of connection.
 - `FailingJob` was merged to `Worker`->`failJob`.
 - `Str` & `Arr` helper classes - took only needed functions.
+- Allow usage of custom serializer/de-serializer for job encode/decode.
 
 
 ### Structural difference
@@ -190,7 +205,7 @@ Used in the queue utils.
 
 ### Missing implementations
 
-- `SerializesModels` & `SerializesAndRestoresModelIdentifiers` traits - they are using `Eloquent` models.
+- `SerializesModels` & `SerializesAndRestoresModelIdentifiers` traits - they are using `Eloquent` models and are specific for Laravel.
 
 
 ## Contribute
@@ -201,15 +216,17 @@ Here's what we are missing:
 - Drivers/Adapters for different queue management (Database [without Doctrine or any other ORM, using PDO], etc..).
 - Event Dispatcher Adapters for different event dispatcher libraries.
 - Container Adapters for e.g.: Symfony, Laravel, Slim, Zend, Yii.
+- Job Serializers Adapters e.g.: JMS Serializer, Symfony Serializer.
 - Bundles for e.g.: Symfony, Laravel, Slim, Zend, Yii.
 - Documentation.
 - Testing.
 - Making sure all the features of `illuminate/queue` work in here too.
 - Battle test the library with different production scenarios.
 - Remove the dependency of Carbon.
-- Haven't yet actually tested `Sqs` & `Redis` queues.
+- Haven't yet actually tested `SQS` & `Redis` queues.
 
 #### Fix required
 
 - `FailingJob` is missing.
 - Add `redis` as default driver.
+- Check what is `createObjectPayload` in `Queue` and check if there's an illuminate dependency there that requires a conversion.

@@ -3,6 +3,9 @@
     <words>
       <w>beanstalkd</w>
       <w>cjson</w>
+      <w>daemonized</w>
+      <w>daemonizing</w>
+      <w>functionalities</w>
       <w>llen</w>
       <w>lpop</w>
       <w>mallabee</w>
@@ -10,6 +13,7 @@
       <w>pheanstalk</w>
       <w>psubscribe</w>
       <w>rpush</w>
+      <w>supervisord</w>
       <w>zadd</w>
       <w>zcard</w>
       <w>zrangebyscore</w>

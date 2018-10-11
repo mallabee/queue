@@ -86,6 +86,15 @@ abstract class Queue
      */
     protected function createPayload($job, $queue, $data = '')
     {
+        // Use a custom serializer if given via the container
+        if (!empty($this->container)) {
+            /** @var JobSerializerInterface $serializer */
+            $serializer = $this->container->get('job_serializer');
+            if (!empty($serializer)) {
+                return $serializer->encode($this->createPayloadArray($job, $queue, $data));
+            }
+        }
+
         $payload = json_encode($this->createPayloadArray($job, $queue, $data));
         if (JSON_ERROR_NONE !== json_last_error()) {
             throw new InvalidPayloadException(

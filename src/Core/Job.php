@@ -78,7 +78,21 @@ abstract class Job
 
         [$class, $method] = JobName::parse($payload['job']);
 
-        ($this->instance = $this->resolve($class))->{$method}($this, $payload['data']);
+
+        $jobPayload = $payload['data'];
+
+        // Use a custom serializer if given via the container
+        if (!empty($this->getContainer())) {
+            /** @var JobSerializerInterface $serializer */
+            $serializer = $this->getContainer()->get('job_serializer');
+            if (!empty($serializer)) {
+                $jobPayloadEncoded = json_encode($jobPayload);
+                [$class, $method] = JobName::parse($payload['job']);
+                $jobPayload = $serializer->decode($class, $jobPayloadEncoded);
+            }
+        }
+
+        ($this->instance = $this->resolve($class))->{$method}($this, $jobPayload);
     }
 
     /**

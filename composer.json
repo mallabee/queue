@@ -16,7 +16,8 @@
         "pda/pheanstalk": "^3.2",
         "aws/aws-sdk-php": "^3.0",
         "predis/predis": "^1.1",
-        "league/event": "^2.1"
+        "league/event": "^2.1",
+        "jms/serializer": "^1.13"
     },
     "autoload": {
         "psr-4": {
@@ -34,7 +35,8 @@
         "aws/aws-sdk-php": "Required to use the SQS queue driver (^3.0).",
         "predis/predis": "Required to use the Redis queue driver (^1.1).",
         "pda/pheanstalk": "Required to use the Beanstalk queue driver (^3.0).",
-        "league/event": "For handling worker events, catching exceptions, interacting with queues, etc (^2.1).."
+        "league/event": "For handling worker events, catching exceptions, interacting with queues, etc (^2.1)..",
+        "jms/serializer": "For encoding/decoding jobs from string to object (^1.13)."
     },
     "config": {
         "sort-packages": true

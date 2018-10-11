@@ -6,14 +6,14 @@
  * Time: 10:35 PM
  */
 
-namespace Mallabee\ExampleEasy;
+namespace Mallabee\Queue\CommonAdapters;
 
 use League\Event\Emitter;
 use Mallabee\Queue\Core\EventDispatcherInterface;
 
 class LeagueEventsDispatcher implements EventDispatcherInterface
 {
-    /** @var Emitter */
+    /** @var Emitter $emitter */
     public $emitter;
 
     /**

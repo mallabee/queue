@@ -15,7 +15,7 @@ trait JobUtils
         if (!empty($payload) && (is_object($payload) || is_array($payload))) {
             $r = new \ReflectionClass($this);
             foreach ($payload as $key => $value) {
-                if (property_exists($this, $key)) {
+                if (!is_null($payload) && property_exists($this, $key)) {
                     if (is_string($value) && !empty($r->getProperty($key)) && is_array($r->getProperty($key)->getValue($this))) {
                         $this->$key = $this->asArray($value);
                     } else {

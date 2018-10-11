@@ -8,6 +8,7 @@
 
 require_once '../../vendor/autoload.php';
 
+use Mallabee\Queue\CommonAdapters\JmsJobSerializer;
 use Mallabee\Queue\CommonAdapters\LeagueEventsDispatcher;
 use Mallabee\Queue\Core\Manager as Queue;
 use Mallabee\Queue\Core\Worker;
@@ -45,7 +46,9 @@ function getOption(string $option)
 
 
 // Create a Queue instance that the worker will be using
-$queue = new Queue;
+$serializer = new JmsJobSerializer(\JMS\Serializer\SerializerBuilder::create()->build());
+$container = new \Mallabee\ExampleEasy\ExampleContainer($serializer);
+$queue = new Queue($container);
 
 $instance = $queue->configure('beanstalkd', [
     'host' => 'localhost',
@@ -116,4 +119,6 @@ try {
 }
 catch (\Throwable $ex) {
     var_dump($ex->getMessage());
+    var_dump($ex->getFile());
+    var_dump($ex->getLine());
 }
