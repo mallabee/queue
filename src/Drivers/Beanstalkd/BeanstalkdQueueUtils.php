@@ -8,22 +8,8 @@
 
 namespace Mallabee\Queue\Drivers\Beanstalkd;
 
-use Mallabee\Queue\Core\QueueInterface;
-
 class BeanstalkdQueueUtils extends \Mallabee\Queue\Core\QueueUtils
 {
-    /**
-     * @return \Pheanstalk\Pheanstalk
-     */
-//    protected function getPheanstalk(): \Pheanstalk\Pheanstalk
-//    {
-//        /** @var BeanstalkdDriver $instance */
-//        $instance = $this->instance;
-//        $pheanstalk = $instance->getPheanstalk();
-//
-//        return $pheanstalk;
-//    }
-
     /**
      * Pull jobs from queues and clean the queue
      *
@@ -37,7 +23,7 @@ class BeanstalkdQueueUtils extends \Mallabee\Queue\Core\QueueUtils
 
         while (!is_null($job = $this->instance->pop())) {
             $job->delete();
-            $this->logger->info("Popped Job {$job->getJobId()}");
+            $this->logger->info("Popped job {$job->getJobId()}");
         }
 
         if (is_callable($onCleanFinished))

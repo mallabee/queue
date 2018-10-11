@@ -25,19 +25,6 @@ abstract class Queue
     protected $connectionName;
 
     /**
-     * @param null|QueueInterface $connection
-     *
-     * @return null|QueueInterface
-     */
-//    public function getQueueConnection(?QueueInterface $connection = null): ?QueueInterface
-//    {
-//        /** @var QueueInterface $that */
-//        $that = $this;
-//
-//        return !empty($connection) ? $connection : $that;
-//    }
-
-    /**
      * The create payload callback.
      *
      * @var callable|null

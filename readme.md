@@ -194,7 +194,7 @@ Used in the queue utils.
 Contribution is highly appreciated.
 
 Here's what we are missing:
-- Drivers/Adapters for different queue management (Database [without Doctrine or any other ORM], etc..).
+- Drivers/Adapters for different queue management (Database [without Doctrine or any other ORM, using PDO], etc..).
 - Event Dispatcher Adapters for different event dispatcher libraries.
 - Container Adapters for e.g.: Symfony, Laravel, Slim, Zend, Yii.
 - Bundles for e.g.: Symfony, Laravel, Slim, Zend, Yii.
@@ -208,3 +208,4 @@ Here's what we are missing:
 #### Fix required
 
 - `FailingJob` is missing.
+- Add `redis` as default driver.

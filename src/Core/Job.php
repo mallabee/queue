@@ -77,12 +77,6 @@ abstract class Job
         $payload = $this->payload();
 
         [$class, $method] = JobName::parse($payload['job']);
-//        try {
-//            var_dump($this->resolve($class));
-//        } catch (\Throwable $ex) {
-//            var_dump($ex->getMessage());
-//        }
-//        die();
 
         ($this->instance = $this->resolve($class))->{$method}($this, $payload['data']);
     }

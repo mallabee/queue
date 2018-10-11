@@ -22,7 +22,11 @@ class Manager
      */
     const DEFAULT_CONNECTION = 'default';
 
-    /** @var null|ContainerInterface $container */
+    /**
+     * Container that will pass around
+     *
+     * @var null|ContainerInterface $container
+     */
     protected $container;
 
     /**
