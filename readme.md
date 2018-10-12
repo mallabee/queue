@@ -160,6 +160,7 @@ See the demo for example of how it's actually done.
 ### Definitions
 
 - Manager/Queue Manager (sometimes referred to as Queue) - The manager that registers drivers, connect to the queue, pushes/seeds jobs to the queue.
+- Seeder - A script that creates a job(s) and adds it to the queue. 
 - Worker - The worker that pulls jobs from queue, fire relevant events.
 - Job - The work that needs to be done.
 - Connection - A queue connection.
