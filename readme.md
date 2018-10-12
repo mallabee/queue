@@ -135,15 +135,27 @@ The container is passed to the job in-order to allow you to get your dependencie
 
 Also - it's used for custom serializing / de-serializing of the job payload.
 
+Currently supported containers:
+
+- PSR complaint: Symfony, Laravel, etc..
+
 #### Event Dispatcher
 
 Notice that we only use the `listen` & `dispatch` of the interface, no need to implement anything else.
+
+Currently supported containers:
+
+- `league/event` (via the `CommonAdapters`).
 
 #### Logger
 
 We are using the popular PSR logger interface.
 
 Used in the queue utils.
+
+Currently supported containers:
+
+- PSR complaint.
 
 #### Serializer - Serializing (encoding) / De-serializing (decoding) job payloads with a custom serializer
 
@@ -157,7 +169,11 @@ The serializer must implement the `JobSerializerInterface`.
 
 See the demo for example of how it's actually done.
 
-**Note:** The de-serializing process is a tad slower than the conventional & standard `json_encode`, `json_decode` way.  
+**Note:** The de-serializing process is a tad slower than the conventional & standard `json_encode`, `json_decode` way.
+
+Currently supported containers:
+
+- `jms/serializer` (via the `CommonAdapters`).  
 
 ### Definitions
 
@@ -217,6 +233,8 @@ See the demo for example of how it's actually done.
 ## Contribute
 
 Contribution is highly appreciated.
+
+Please follow the [Contribution Guide](CONTRIBUTING.md) before contributing.
 
 Here's what we are missing:
 - Drivers/Adapters for different queue management (Database [without Doctrine or any other ORM, using PDO], etc..).
