@@ -142,7 +142,7 @@ We are using the popular PSR logger interface.
 
 Used in the queue utils.
 
-#### Serializer - Serializing (encoding) / De-serializing (decoding) job payloads with a custom serializer.
+#### Serializer - Serializing (encoding) / De-serializing (decoding) job payloads with a custom serializer
 
 You are able to serializer / de-serialize a job payload via a custom serializer such as JMS serializer (`jms/serializer`) and Symfony Serializer.
 
@@ -153,6 +153,8 @@ To do so you will have to use a container which has a key called `job_serializer
 The serializer must implement the `JobSerializerInterface`.
 
 See the demo for example of how it's actually done.
+
+**Note:** The de-serializing process is a tad slower than the conventional & standard `json_encode`, `json_decode` way.  
 
 ### Definitions
 
