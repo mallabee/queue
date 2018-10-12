@@ -57,6 +57,7 @@ https://laravel.com/docs/5.7/queues#introduction
 - Event Dispatcher.
 - Container.
 - Supervisord.
+- Serializer / De-serializer.
 
 ### Seeding work to Queue Manager
 
