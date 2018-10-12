@@ -5,7 +5,7 @@
  * Date: 10/10/18
  * Time: 7:03 PM
  */
-use Mallabee\Queue\CommonAdapters\LeagueEventsDispatcher;
+use Mallabee\Queue\CommonAdapters\LeagueEventDispatcher;
 use Mallabee\Queue\Events\JobExceptionOccurred;
 use Mallabee\Queue\Events\JobFailed;
 use Mallabee\Queue\Events\JobProcessed;
@@ -29,7 +29,7 @@ function getOption(string $option)
 
 
 // Prepare the worker events
-$eventsDispatcher = new LeagueEventsDispatcher;
+$eventsDispatcher = new LeagueEventDispatcher;
 $eventsDispatcher->listen(JobProcessing::class, function ($leagueEvent, $queueEvent, $payload) {
     /** @var JobProcessing $queueEvent */
     $jobId = $queueEvent->job->getJobId();

@@ -11,7 +11,7 @@ namespace Mallabee\Queue\CommonAdapters;
 use League\Event\Emitter;
 use Mallabee\Queue\Core\EventDispatcherInterface;
 
-class LeagueEventsDispatcher implements EventDispatcherInterface
+class LeagueEventDispatcher implements EventDispatcherInterface
 {
     /** @var Emitter $emitter */
     public $emitter;

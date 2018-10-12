@@ -9,7 +9,7 @@
 require_once '../../vendor/autoload.php';
 
 use Mallabee\Queue\CommonAdapters\JmsJobSerializer;
-use Mallabee\Queue\CommonAdapters\LeagueEventsDispatcher;
+use Mallabee\Queue\CommonAdapters\LeagueEventDispatcher;
 use Mallabee\Queue\Core\Manager as Queue;
 use Mallabee\Queue\Core\Worker;
 use Mallabee\Queue\Core\WorkerOptions;
@@ -59,7 +59,7 @@ $instance = $queue->configure('beanstalkd', [
 
 
 // Prepare the worker events
-$eventsDispatcher = new LeagueEventsDispatcher;
+$eventsDispatcher = new LeagueEventDispatcher;
 $eventsDispatcher->listen(JobProcessing::class, function ($leagueEvent, $queueEvent, $payload) {
     /** @var JobProcessing $queueEvent */
     $jobId = $queueEvent->job->getJobId();
