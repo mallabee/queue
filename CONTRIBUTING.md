@@ -32,7 +32,7 @@ Please note we have a code of conduct, please follow it in all your interactions
 <a name="bug-reports"></a>
 ## Bug Reports
 
-To encourage active collaboration, Laravel strongly encourages pull requests, not just bug reports. "Bug reports" may also be sent in the form of a pull request containing a failing test.
+To encourage active collaboration, we strongly encourages pull requests, not just bug reports. "Bug reports" may also be sent in the form of a pull request containing a failing test.
 
 However, if you file a bug report, your issue should contain a title and a clear description of the issue. You should also include as much relevant information as possible and a code sample that demonstrates the issue. The goal of a bug report is to make it easy for yourself - and others - to replicate the bug and develop a fix.
 
@@ -41,9 +41,7 @@ Remember, bug reports are created in the hope that others with the same problem 
 <a name="core-development-discussion"></a>
 ## Core Development Discussion
 
-You may propose new features or improvements of existing Laravel behavior in the [issue board](https://github.com/mallabee/queue/issues). If you propose a new feature, please be willing to implement at least some of the code that would be needed to complete the feature.
-
-Informal discussion regarding bugs, new features, and implementation of existing features takes place in the `#internals` channel of the [Laravel Discord server](https://discordapp.com/invite/mPZNm7A).
+You may propose new features or improvements of existing behavior in the [issue board](https://github.com/mallabee/queue/issues). If you propose a new feature, please be willing to implement at least some of the code that would be needed to complete the feature.
 
 <a name="which-branch"></a>
 ## Which Branch?
@@ -67,7 +65,7 @@ We follow the [PSR-2](https://github.com/php-fig/fig-standards/blob/master/accep
 <a name="phpdoc"></a>
 ### PHPDoc
 
-Below is an example of a valid Laravel documentation block. Note that the `@param` attribute is followed by two spaces, the argument type, two more spaces, and finally the variable name:
+Below is an example of a valid documentation block. Note that the `@param` attribute is followed by two spaces, the argument type, two more spaces, and finally the variable name:
 
     /**
      * Register a binding with the container.
@@ -85,7 +83,7 @@ Below is an example of a valid Laravel documentation block. Note that the `@para
 <a name="styleci"></a>
 ### StyleCI
 
-Don't worry if your code styling isn't perfect! [StyleCI](https://styleci.io/) will automatically merge any style fixes into the Laravel repository after pull requests are merged. This allows us to focus on the content of the contribution and not the code style.
+Don't worry if your code styling isn't perfect! [StyleCI](https://styleci.io/) will automatically merge any style fixes into the repository after pull requests are merged. This allows us to focus on the content of the contribution and not the code style.
 
 
 <a name="code-of-conduct"></a>
