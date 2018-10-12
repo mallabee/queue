@@ -8,7 +8,7 @@ Leaning on `illuminate/queue` version: 5.7.9
 
 ## What?
 
-Framework agnostic Queue Management for Beanstalkd, SQS, Redis, Database. Easy to use in pure PHP, Symfony, Laravel, Yii2 projects. Based on illuminate/queue (Laravel Queues).
+Framework agnostic background task queue management for Beanstalkd, SQS, Redis, Database. Easy to use in pure PHP, Symfony, Laravel, Yii2 projects. Based on illuminate/queue (Laravel Queues).
 
 A background task management using multiple drivers with ability to register custom drivers.
 
