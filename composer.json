@@ -1,6 +1,6 @@
 {
     "name": "mallabee/queue",
-    "description": "Framework agnostic Queue Management for Beanstalkd, SQS, Redis, Database. easy to use in pure PHP projects as well as frameworks such as Symfony, Laravel, Yii2. Based on illuminate/queue (Laravel Queues).",
+    "description": "Framework agnostic Queue Management for Beanstalkd, SQS, Redis, Database. Easy to use in pure PHP, Symfony, Laravel, Yii2 projects. Based on illuminate/queue (Laravel Queues).",
     "license": "MIT",
     "require": {
         "php": "^7.1",
