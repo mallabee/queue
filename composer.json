@@ -2,6 +2,7 @@
     "name": "mallabee/queue",
     "description": "Framework agnostic background task queue management for Beanstalkd, SQS, Redis. Easy to use in pure PHP, Symfony, Laravel, Yii2 projects. Based on illuminate/queue (Laravel Queues).",
     "license": "MIT",
+    "homepage": "https://www.mallabee.com",
     "require": {
         "php": "^7.1",
         "ext-json": "*",
@@ -44,7 +45,8 @@
     "authors": [
         {
             "name": "Din Bracha",
-            "email": "dinbrca@gmail.com"
+            "email": "dinbrca@gmail.com",
+            "homepage": "https://www.mallabee.com"
         }
     ]
 }
