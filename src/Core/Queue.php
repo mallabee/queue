@@ -87,7 +87,7 @@ abstract class Queue
     protected function createPayload($job, $queue, $data = '')
     {
         // Use a custom serializer if given via the container
-        if (!empty($this->container)) {
+        if (!empty($this->container) && $this->container->has('job_serializer')) {
             /** @var JobSerializerInterface $serializer */
             $serializer = $this->container->get('job_serializer');
             if (!empty($serializer)) {

@@ -82,7 +82,7 @@ abstract class Job
         $jobPayload = $payload['data'];
 
         // Use a custom serializer if given via the container
-        if (!empty($this->getContainer())) {
+        if (!empty($this->getContainer()) && $this->getContainer()->has('job_serializer')) {
             /** @var JobSerializerInterface $serializer */
             $serializer = $this->getContainer()->get('job_serializer');
             if (!empty($serializer)) {
