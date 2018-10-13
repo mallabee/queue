@@ -53,7 +53,7 @@ https://laravel.com/docs/5.7/queues#introduction
 
 - Basic PHP understanding.
 - What is queue management & background jobs.
-- Beanstalkd.
+- Beanstalkd (more read about queuing: https://jtreminio.com/blog/queues-working-smart-faster-in-parallel/).
 - Amazon SQS.
 - Redis.
 - Event Dispatcher.
