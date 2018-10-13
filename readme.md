@@ -91,16 +91,26 @@ Queue::push('SendEmail', array('message' => $message));
 
 ### Registering a custom queue handler driver
 
+As default - we have provided you with popular queue drivers default out of the box, this includes:
+
+- Beanstalkd
+- Amazon SQS
+- Redis
+
+If you would like to create your own custom queue - follow these queues folders and create your custom queue driver.
+
 **Note:** Make sure all your connector, driver and job files are inside same folder
+
+Then when you have the driver ready, use it by registering and configuring it like so:
 
 ```php
 use Mallabee\Queue\Core\Manager as Queue;
 
 $queue = new Queue;
 
-$this->registerDriver('beanstalkd', new \Drivers\Beanstalkd\BeanstalkdConnector());
+$this->registerDriver('mycustomdriver', new \Drivers\MyCustomDriver\MyCustomDriverConnector());
 
-$instance = $queue->configure('beanstalkd', [
+$instance = $queue->configure('mycustomdriver', [
     'host' => 'localhost',
     'queue' => 'default',
 ]);
