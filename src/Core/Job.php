@@ -2,7 +2,6 @@
 
 namespace Mallabee\Queue\Core;
 
-use Mallabee\Queue\Events\JobFailed;
 use Mallabee\Queue\Exceptions\ManuallyFailedException;
 use Psr\Container\ContainerInterface;
 

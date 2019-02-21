@@ -11,6 +11,7 @@
         "psr/container": "^1.0",
         "psr/log": "^1.0"
     },
+    "minimum-stability": "dev",
     "require-dev": {
         "ext-pcntl": "*",
         "ext-posix": "*",
@@ -18,7 +19,8 @@
         "aws/aws-sdk-php": "^3.0",
         "predis/predis": "^1.0",
         "league/event": "^2.1",
-        "jms/serializer": "^1.13"
+        "jms/serializer": "^1.13",
+        "illuminate/queue": "5.8.x-dev"
     },
     "autoload": {
         "psr-4": {
