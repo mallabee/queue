@@ -5,7 +5,6 @@ namespace Mallabee\Queue\Drivers\Beanstalkd;
 use Mallabee\Queue\Core\QueueInterface;
 use Pheanstalk\Connection;
 use Pheanstalk\Pheanstalk;
-use Pheanstalk\PheanstalkInterface;
 
 /**
  * Created by PhpStorm.
@@ -26,7 +25,7 @@ class BeanstalkdConnector implements \Mallabee\Queue\Core\QueueConnectorInterfac
     {
         $retryAfter = $config['retry_after'] ?? Pheanstalk::DEFAULT_TTR;
 
-        return new BeanstalkdDriver($this->pheanstalk($config), $config['queue'], $retryAfter);
+        return new BeanstalkdDriver($this->pheanstalk($config), $config['queue'], $retryAfter, $config['block_for'] ?? 0);
     }
 
     /**
@@ -37,11 +36,10 @@ class BeanstalkdConnector implements \Mallabee\Queue\Core\QueueConnectorInterfac
      */
     protected function pheanstalk(array $config)
     {
-        return new Pheanstalk(
+        return Pheanstalk::connect(
             $config['host'],
-            $config['port'] ?? PheanstalkInterface::DEFAULT_PORT,
-            $config['timeout'] ?? Connection::DEFAULT_CONNECT_TIMEOUT,
-            $config['persistent'] ?? false
+            $config['port'] ?? Pheanstalk::DEFAULT_PORT,
+            $config['timeout'] ?? Connection::DEFAULT_CONNECT_TIMEOUT
         );
     }
 }

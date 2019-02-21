@@ -2,7 +2,7 @@ Date updated: October 11, 2018.
 
 State: Still Active.
 
-Leaning on `illuminate/queue` version: 5.7.9
+Leaning on (including) `illuminate/queue` version: 5.8.0
 
 
 

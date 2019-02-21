@@ -14,9 +14,9 @@
     "require-dev": {
         "ext-pcntl": "*",
         "ext-posix": "*",
-        "pda/pheanstalk": "^3.2",
+        "pda/pheanstalk": "^4.0",
         "aws/aws-sdk-php": "^3.0",
-        "predis/predis": "^1.1",
+        "predis/predis": "^1.0",
         "league/event": "^2.1",
         "jms/serializer": "^1.13"
     },
@@ -34,8 +34,8 @@
         "ext-pcntl": "Required to use all features of the queue worker.",
         "ext-posix": "Required to use all features of the queue worker.",
         "aws/aws-sdk-php": "Required to use the SQS queue driver (^3.0).",
-        "predis/predis": "Required to use the Redis queue driver (^1.1).",
-        "pda/pheanstalk": "Required to use the Beanstalk queue driver (^3.0).",
+        "predis/predis": "Required to use the Redis queue driver (^1.0).",
+        "pda/pheanstalk": "Required to use the Beanstalk queue driver (^4.0).",
         "league/event": "For handling worker events, catching exceptions, interacting with queues, etc (^2.1)..",
         "jms/serializer": "For encoding/decoding jobs from string to object (^1.13)."
     },
