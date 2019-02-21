@@ -7,7 +7,7 @@
         "php": "^7.1",
         "ext-json": "*",
         "ext-mbstring": "*",
-        "nesbot/carbon": "^2.0",
+        "nesbot/carbon": "^1.26.3",
         "psr/container": "^1.0",
         "psr/log": "^1.0"
     },
@@ -16,6 +16,7 @@
         "ext-posix": "*",
         "pda/pheanstalk": "^3.2",
         "aws/aws-sdk-php": "^3.0",
+        "illuminate/redis": "5.7.27",
         "predis/predis": "^1.1",
         "league/event": "^2.1",
         "jms/serializer": "^1.13"
@@ -34,6 +35,7 @@
         "ext-pcntl": "Required to use all features of the queue worker.",
         "ext-posix": "Required to use all features of the queue worker.",
         "aws/aws-sdk-php": "Required to use the SQS queue driver (^3.0).",
+        "illuminate/redis": "Required to use the Redis queue driver (^5.7).",
         "predis/predis": "Required to use the Redis queue driver (^1.1).",
         "pda/pheanstalk": "Required to use the Beanstalk queue driver (^3.0).",
         "league/event": "For handling worker events, catching exceptions, interacting with queues, etc (^2.1)..",

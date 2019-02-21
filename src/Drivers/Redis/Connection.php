@@ -1,5 +1,7 @@
 <?php
 
+// Currently unused - Using Illuminate\Contracts\Redis\Connection instead
+
 namespace Mallabee\Queue\Drivers\Redis;
 
 use Closure;

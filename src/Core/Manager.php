@@ -8,6 +8,7 @@
 
 namespace Mallabee\Queue\Core;
 
+use Illuminate\Redis\RedisManager;
 use \Mallabee\Queue\Drivers\Beanstalkd\BeanstalkdConnector;
 use Mallabee\Queue\Drivers\Redis\RedisConnector;
 use Mallabee\Queue\Drivers\Sqs\SqsConnector;
@@ -112,10 +113,10 @@ class Manager
         } catch (\Exception $ex) {
         }
 
-        /*try {
-            $this->registerDriver('redis', new RedisConnector());
-        } catch (\Exception $ex) {
-        }*/
+//        try {
+//            $this->registerDriver('redis', new RedisConnector(new RedisManager(null, 'predis', [])));
+//        } catch (\Exception $ex) {
+//        }
     }
 
     /**

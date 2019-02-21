@@ -310,7 +310,7 @@ class RedisQueue extends Queue implements QueueInterface
     /**
      * Get the connection for the queue.
      *
-     * @return \Mallabee\Queue\Drivers\Redis\Connection
+     * @return Illuminate\Contracts\Redis\Connection
      */
     protected function getConnection()
     {

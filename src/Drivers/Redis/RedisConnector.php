@@ -4,14 +4,14 @@ namespace Mallabee\Queue\Drivers\Redis;
 
 use Mallabee\Queue\Core\QueueConnectorInterface;
 use Mallabee\Queue\Core\QueueInterface;
-use Mallabee\Queue\Drivers\Redis\Factory as Redis;
+use Illuminate\Contracts\Redis\Factory as Redis;
 
 class RedisConnector implements QueueConnectorInterface
 {
     /**
      * The Redis database instance.
      *
-     * @var \Mallabee\Queue\Drivers\Redis\Factory
+     * @var \Illuminate\Contracts\Redis\Factory
      */
     protected $redis;
 
@@ -25,7 +25,7 @@ class RedisConnector implements QueueConnectorInterface
     /**
      * Create a new Redis queue connector instance.
      *
-     * @param  \Mallabee\Queue\Drivers\Redis\Factory  $redis
+     * @param  \Illuminate\Contracts\Redis\Factory  $redis
      * @param  string|null  $connection
      * @return void
      */

@@ -1,5 +1,7 @@
 <?php
 
+// Currently unused - Using \Illuminate\Contracts\Redis\Factory instead
+
 namespace Mallabee\Queue\Drivers\Redis;
 
 interface Factory

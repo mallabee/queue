@@ -1,14 +1,14 @@
-Date updated: October 11, 2018.
+Date updated: February 21, 201.
 
 State: Still Active.
 
-Leaning on `illuminate/queue` version: 5.7.9
+Leaning on (including) `illuminate/queue` version: 5.7.27
 
 
 
 ## What?
 
-Framework agnostic background task queue management for Beanstalkd, SQS, Redis. Easy to use in pure PHP, Symfony, Laravel, Yii2 projects. Based on illuminate/queue (Laravel Queues).
+Framework agnostic background task queue management for Beanstalkd, SQS. Easy to use in pure PHP, Symfony, Laravel, Yii2 projects. Based on illuminate/queue (Laravel Queues).
 
 A background task management using multiple drivers with ability to register custom drivers.
 
@@ -55,7 +55,6 @@ https://laravel.com/docs/5.7/queues#introduction
 - What is queue management & background jobs.
 - Beanstalkd (more read about queuing: https://jtreminio.com/blog/queues-working-smart-faster-in-parallel/).
 - Amazon SQS.
-- Redis.
 - Event Dispatcher.
 - Container.
 - Supervisord.
@@ -95,7 +94,7 @@ As default - we have provided you with popular queue drivers default out of the 
 
 - Beanstalkd
 - Amazon SQS
-- Redis
+- Redis (Currently **not implemented** yet because requires migrating of `illuminate/redis` package)
 
 If you would like to create your own custom queue - follow these queues folders and create your custom queue driver.
 
